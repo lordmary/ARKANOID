@@ -1,11 +1,12 @@
 package arkanoid;
 
 import javax.swing.ImageIcon;
+import java.util.Random;
 
 public class Tijolo extends Alma
 {
     private boolean vivo;
-    private int vida, cor, pontos;
+    private int vida, cor, pontos, upperbound = 9;
     
     public Tijolo(int x,int y)
     {
@@ -19,76 +20,82 @@ public class Tijolo extends Alma
         this.setY(y);
         vivo = true;
 
+        Random rand = new Random();
+        cor = rand.nextInt(upperbound);
+
         switch(cor)
         {
-            case 1:
+            case 0:
                 loadImagemBranco();
                 getImagemDimensions();
                 this.setVida(1);
                 this.setPonto(50);
                 break;
 
-            case 2:
+            case 1:
                 loadImagemLaranja();
                 getImagemDimensions();
                 this.setVida(1);
                 this.setPonto(60);
                 break;
 
-            case 3:
+            case 2:
                 loadImagemCiano();
                 getImagemDimensions();
                 this.setVida(1);
                 this.setPonto(70);
                 break;
 
-            case 4:
+            case 3:
                 loadImagemVerde();
                 getImagemDimensions();
                 this.setVida(1);
                 this.setPonto(80);
                 break;
 
-            case 5:
+            case 4:
                 loadImagemVermelho();
                 getImagemDimensions();
                 this.setVida(1);
                 this.setPonto(90);
                 break;
 
-            case 6:
+            case 5:
                 loadImagemAzul();
                 getImagemDimensions();
                 this.setVida(1);
                 this.setPonto(100);
                 break;
 
-            case 7:
+            case 6:
                 loadImagemRoxo();
                 getImagemDimensions();
                 this.setVida(1);
                 this.setPonto(110);
                 break;
 
-            case 8:
+            case 7:
                 loadImagemAmarelo();
                 getImagemDimensions();
                 this.setVida(1);
                 this.setPonto(120);
                 break;
 
-            case 9:
+            case 8:
                 loadImagemPrata();
                 getImagemDimensions();
                 this.setVida(5);
                 this.setPonto(150);
                 break;
 
-            case 10:
+            case 9:
                 loadImagemOuro();
                 getImagemDimensions();
                 this.setVida(-1);
                 this.setPonto(0);
+                break;
+
+            default:
                 break;
         }
     }
